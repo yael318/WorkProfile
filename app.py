@@ -1,4 +1,4 @@
-from cgitb import handler
+#from cgitb import handler
 from flask import Flask, render_template, request, Response
 from os import environ
 from dbcontext import db_data, db_delete, db_add, health_check
@@ -37,3 +37,6 @@ def add():
         return db_add(person)
     app.logger.error("Request body is empty")
     return Response(status=404)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
